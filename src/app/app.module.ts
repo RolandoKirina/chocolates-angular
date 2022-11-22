@@ -6,19 +6,24 @@ import { AppComponent } from './app.component';
 import { ChocolateListComponent } from './chocolate-list/chocolate-list.component';
 import { HomeChocolateComponent } from './home-chocolate/home-chocolate.component';
 import { BrandsListComponent } from './brands-list/brands-list.component';
-import { HttpClientModule } from '@angular/common/http';
+
+import {HttpClientModule} from '@angular/common/http';
+
+import { FormsModule } from '@angular/forms'
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ChocolateListComponent,
     HomeChocolateComponent,
-    BrandsListComponent
+    BrandsListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

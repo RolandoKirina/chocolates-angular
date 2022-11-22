@@ -7,48 +7,52 @@
           <th>Brand</th>
           <th>Price</th>
           <th>Stock</th>
+          <th>Eliminar</th>
       </tr>
   </thead>
   <tbody class="font">
       <!-- directiva icecream se recorre con ngfor-->
-      <tr *ngFor=" let chocolate of chocolates" [ngClass]="{'ofert': chocolate.ofert}">
+      <tr *ngFor=" let chocolate of chocolates" [ngClass]="{'price': chocolate.price < 200}">
           <td><img width="100" class="img-thumbnail"
               [src]="chocolate.image" [alt]="chocolate.name"></td>
           <td>{{chocolate.name}}</td>
           <td>{{chocolate.brand}}</td>
           <!--Ejemplo de pipe currency para los precios-->
           <td>{{chocolate.price | currency}}</td>
-          <td><span *ngIf="chocolate.stock ==0 " class="nostock">No hay stock</span></td>
-          <td>Editar</td>
-          <td>Eliminar</td>
+          <td><span *ngIf="chocolate.stock == 0 " class="nostock">No hay stock</span></td>
+          <td><button class="btn btn-outline-danger" (click)="deletechocolate(chocolate)">Eliminar</button></td>
       </tr>
   </tbody>
 </table>
 <div class="form">
   <div class="font">
     <h5>Add</h5>
-    <form>
+    <form (ngSubmit)="onsubmit()">
       <div>
           <label>Image: </label>
-          <input type="file"  class="form-control" >
+          <input type="file"  class="form-control" [(ngModel)]="model.image" [ngModelOptions]="{standalone: true}" id="image" >
       </div>
       <div>
         <label>Name:</label>
-        <input type="text" placeholder="name"  class="form-control" >
+        <input type="text" class="form-control" placeholder="name"  [(ngModel)]="model.name" [ngModelOptions]="{standalone: true}" id="name">
       </div>
       <div>
       <label>Brand: </label>
-      <input type="text" placeholder="number"  class="form-control" >
+      <input type="text" placeholder="brand"   class="form-control" [(ngModel)]="model.brand" [ngModelOptions]="{standalone: true}" id="brand">
       </div>
       <div>
       <label>Price: </label>
-      <input type="number" placeholder="price"  class="form-control" >
+      <input type="number" placeholder="price"  class="form-control" [(ngModel)]="model.price" [ngModelOptions]="{standalone: true}" id="price">
       </div>
       <div>
       <label>Stock: </label>
-      <input type="number" placeholder="stock"  class="form-control" >
+      <input type="number" placeholder="stock"  class="form-control" [(ngModel)]="model.stock" [ngModelOptions]="{standalone: true}" id="stock">
       </div>
-      <button type="submit" > Send</button>
+      <div>
+      </div>
+      <div class="mt-">
+      <button class="btn btn-outline-dark">Send</button>
+      </div>
   </form>
 </div>
 </div>
