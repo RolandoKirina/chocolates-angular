@@ -1,0 +1,53 @@
+
+<table class="table">
+  <thead class="font">
+      <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Brand</th>
+          <th>Price</th>
+          <th>Stock</th>
+      </tr>
+  </thead>
+  <tbody class="font">
+      <!-- directiva icecream se recorre con ngfor-->
+      <tr *ngFor=" let chocolate of chocolates" [ngClass]="{'ofert': chocolate.ofert}">
+          <td><img width="100" class="img-thumbnail"
+              [src]="chocolate.image" [alt]="chocolate.name"></td>
+          <td>{{chocolate.name}}</td>
+          <td>{{chocolate.brand}}</td>
+          <!--Ejemplo de pipe currency para los precios-->
+          <td>{{chocolate.price | currency}}</td>
+          <td><span *ngIf="chocolate.stock ==0 " class="nostock">No hay stock</span></td>
+          <td>Editar</td>
+          <td>Eliminar</td>
+      </tr>
+  </tbody>
+</table>
+  <div class="font">
+    <h5>Add</h5>
+    <div class="input-group mb-3">
+      <label>Image: </label>
+        <input type="file" class="custom-file-input" id="inputGroupFile02">
+    </div>
+    <div class="input-group input-group-sm mb-3">
+      <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+      </div>
+    <label>Brand: </label>
+    <input type="number" placeholder="number">
+    <label>Price: </label>
+    <input type="price" placeholder="price">
+    <label>Stock: </label>
+    <input type="stock" placeholder="stock">
+
+
+
+
+
+
+
+
+
+    <td>Vaciar todos</td>
+  </div>
+
