@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ChocolateListComponent } from './chocolate-list/chocolate-list.component';
 import { HomeChocolateComponent } from './home-chocolate/home-chocolate.component';
 import { BrandsListComponent } from './brands-list/brands-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BrandsListComponent } from './brands-list/brands-list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

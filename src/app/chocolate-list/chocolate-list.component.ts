@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChocolateDataService } from '../chocolates-data-service.service';
 import { Chocolate } from './chocolate';
 
 @Component({
@@ -8,39 +9,14 @@ import { Chocolate } from './chocolate';
 })
 export class ChocolateListComponent implements OnInit {
 
-  chocolates: Chocolate[] = [
-    {
-      name: 'Dos corazones',
-      brand: 'Milka',
-      price: 350,
-      stock: 2,
-      image: 'assets/img/Doscorazones.jpg',
-      ofert: false,
-      quantity: 0,
-    },
-    {
-      name: 'Ferrero Rocher',
-      brand: 'Ferrero',
-      price: 350,
-      stock: 4,
-      image: 'assets/img/ferrerorocher.jpg',
-      ofert: true,
-      quantity: 0,
-    },
-    {
-      name: 'Milka',
-      brand: 'Milka',
-      price: 280,
-      stock: 0,
-      image: 'assets/img/milka.jpg',
-      ofert: false,
-      quantity: 0,
-    },
-    ]
+  chocolates: Chocolate[] = [];
 
-  constructor() { }
+  constructor( private Chocolatedataservice : ChocolateDataService) {}
 
   ngOnInit(): void {
+    /*cuando se carga la pagina*/
+    this.Chocolatedataservice.getAll()
+    .subscribe(chocolates => this.chocolates = chocolates );
   }
 
 }
