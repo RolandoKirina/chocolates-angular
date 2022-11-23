@@ -9,7 +9,7 @@ import { BrandsListComponent } from './brands-list/brands-list.component';
 
 import {HttpClientModule} from '@angular/common/http';
 
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({

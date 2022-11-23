@@ -7,6 +7,7 @@
           <th>Brand</th>
           <th>Price</th>
           <th>Stock</th>
+          <th>Editar</th>
           <th>Eliminar</th>
       </tr>
   </thead>
@@ -20,13 +21,15 @@
           <!--Ejemplo de pipe currency para los precios-->
           <td>{{chocolate.price | currency}}</td>
           <td><span *ngIf="chocolate.stock == 0 " class="nostock">No hay stock</span></td>
+          <td><button class="btn btn-outline-secondary" (click)="putchocolate(chocolate)">Editar</button></td>
           <td><button class="btn btn-outline-danger" (click)="deletechocolate(chocolate)">Eliminar</button></td>
       </tr>
   </tbody>
 </table>
 <div class="form">
   <div class="font">
-    <h5>Add</h5>
+
+    <h5>Add or Edit</h5>
     <form (ngSubmit)="onsubmit()">
       <div>
           <label>Image: </label>
@@ -56,4 +59,5 @@
   </form>
 </div>
 </div>
+
 

@@ -24,18 +24,24 @@ export class ChocolateListComponent implements OnInit {
       this.getAll()
     ))
   }
-  onsubmit() {
-    this.Chocolatedataservice.post(this.model)
-    .subscribe((response: Chocolate) => console.log(response));
 
-  }
   getAll() {
     this.Chocolatedataservice.getAll()
     .subscribe(chocolates => this.chocolates = chocolates);
   }
 
+  onsubmit() {
+    this.Chocolatedataservice.post(this.model)
+    .subscribe((response: Chocolate) => console.log(response));
+
+  }
+
   deletechocolate(chocolate : Chocolate) {
     this.Chocolatedataservice.delete(chocolate.id)
+    .subscribe((response: Chocolate) => console.log(response));
+  }
+  putchocolate (chocolate: Chocolate){
+    this.Chocolatedataservice.put(chocolate.id, this.model)
     .subscribe((response: Chocolate) => console.log(response));
   }
 }
