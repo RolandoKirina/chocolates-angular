@@ -1,4 +1,4 @@
-
+<div class="font">
 <table class="table">
   <thead>
       <tr>
@@ -7,23 +7,23 @@
           <th>Brand</th>
           <th>Price</th>
           <th>Stock</th>
-          <th>Eliminar</th>
+          <th>Delete</th>
       </tr>
   </thead>
   <tbody>
       <!-- directiva icecream se recorre con ngfor-->
-      <tr *ngFor=" let chocolate of chocolates" [ngClass]="{'price': chocolate.price < 200}">
+      <tr *ngFor=" let chocolate of chocolates" [ngClass]="{'price': chocolate.price > 250}">
           <td><img width="100" class="img-thumbnail"
               [src]="chocolate.image" [alt]="chocolate.name"></td>
           <td>{{chocolate.name}}</td>
           <td>{{chocolate.brand}}</td>
           <!--Ejemplo de pipe currency para los precios-->
           <td>{{chocolate.price | currency}}</td>
-          <div class="divnostock"><td class="td"><span *ngIf="chocolate.stock == 0 " class="nostock">No hay stock</span></td></div>
-          <td><button class="btn btn-outline-danger" (click)="deletechocolate(chocolate)">Eliminar</button></td>
+          <div class="mt-4"><td><span *ngIf="chocolate.stock == 0 " class="alert alert-danger">There´s no stock</span></td></div>
+          <td><button class="btn btn-outline-danger" (click)="deletechocolate(chocolate)">Delete</button></td>
       </tr>
   </tbody>
 </table>
-
+</div>
 
 

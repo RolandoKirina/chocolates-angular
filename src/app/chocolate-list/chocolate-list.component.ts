@@ -40,6 +40,5 @@ export class ChocolateListComponent implements OnInit {
     this.Chocolatedataservice.delete(chocolate.id)
     .subscribe((response: Chocolate) => console.log(response));
   }
-
   }
 
