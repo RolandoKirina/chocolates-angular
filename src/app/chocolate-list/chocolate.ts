@@ -4,6 +4,6 @@ export interface Chocolate {
   brand: string,
   price: number,
   stock: number,
-  image: string,
+  image: string
 
 }

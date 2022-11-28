@@ -12,23 +12,20 @@ export class FormChocolatesComponent implements OnInit {
 
   subscription: Subscription | any;
 
-  model: Chocolate = { id: 0, image: '', name: '', brand: '', price: 0, stock: 0};
-
-  @Input()
-  stock: number;
-
+  data: Chocolate = {id: 0,  image: '', name: '', brand: '', price: 0, stock: 0};
+  chocolate: Chocolate;
 
   constructor( private Chocolatedataservice : ChocolateDataService) { }
 
   ngOnInit(): void {
   }
 
+  onsubmit() {
+    this.Chocolatedataservice.post(this.data)
+    .subscribe((response: Chocolate) => console.log(response));
+  }
 
-onsubmit() {
-  this.Chocolatedataservice.post(this.model)
-  .subscribe((response: Chocolate) => console.log(response));
 
-}
 
 }
 

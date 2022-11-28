@@ -39,6 +39,14 @@ export class ChocolateDataService {
       ))
     );
   }
+  public put (id: number, chocolate: Chocolate): Observable<Chocolate> {
+
+    return this.http.put<Chocolate>(this.URL + "/" + id, chocolate).pipe(
+      tap(() => (
+        this._refresh$.next()
+      ))
+    );
+  }
 
 
 }
