@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Input } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ChocolateDataService } from '../chocolates-data-service.service';
 import { Chocolate } from '../chocolate-list/chocolate';
 import { Subscription } from 'rxjs';
@@ -23,6 +23,12 @@ export class FormChocolatesComponent implements OnInit {
   onsubmit() {
     this.Chocolatedataservice.post(this.data)
     .subscribe((response: Chocolate) => console.log(response));
+  }
+  deletechocolate(chocolate : Chocolate) {
+
+    this.Chocolatedataservice.delete(chocolate.id)
+    .subscribe((response: Chocolate) => console.log(response));
+
   }
 
 

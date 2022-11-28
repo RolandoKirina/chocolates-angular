@@ -15,9 +15,6 @@ export class ChocolateListComponent implements OnInit {
 
   data: Chocolate = { id: 0, image: '', name: '', brand: '', price: 0, stock: 0};
 
-  @Output()
-  deleted: EventEmitter<string> = new EventEmitter<string>();
-
   constructor( private Chocolatedataservice : ChocolateDataService) {}
 
   ngOnInit(): void {
@@ -43,15 +40,10 @@ export class ChocolateListComponent implements OnInit {
   }
 
   deletechocolate(chocolate : Chocolate) {
-
-    if (this.data){
-      this.Chocolatedataservice.delete(chocolate.id)
-     .subscribe((response: Chocolate) => console.log(response));
-    }
-    else {
-      this.deleted.emit("Se ha eliminado con exito")
-    }
-
-  }
+     this.Chocolatedataservice.delete(chocolate.id)
+    .subscribe((response: Chocolate) => console.log(response));
   }
 
+
+
+}

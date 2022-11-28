@@ -17,6 +17,7 @@ import { ChocolatesFormComponent } from './chocolates-form/chocolates-form.compo
     HomeChocolateComponent,
     FormChocolatesComponent,
     ChocolatesFormComponent,
+
   ],
   imports: [
     BrowserModule,
